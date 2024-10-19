@@ -8,11 +8,15 @@ todoForm.addEventListener("submit", (event) => {
 
   const todoFormData = new FormData(event.target);
   const data = Object.fromEntries(todoFormData);
+  console.log(todoFormData);
 
   const todoItem = document.createElement("li");
   todoItem.textContent = data.todoInput;
 
-  todoContainer.appendChild(todoItem);
+  if (data.todoInput.trim() !== "") {
+    todoContainer.appendChild(todoItem);
+  }
 
   todoItemsLeft.textContent = todoContainer.childElementCount;
 });
+
